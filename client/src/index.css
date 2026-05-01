@@ -1,0 +1,42 @@
+/* 1. Import ฟอนต์ที่ดูทันสมัยและเป็นสากล (Inter สำหรับอังกฤษ, Noto Sans Thai สำหรับไทย) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap');
+
+/* 2. ดึงความสามารถหลักของ Tailwind มาใช้งาน */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 3. ตั้งค่า Base Layer (จุดที่โชว์ความเป็นมืออาชีพ) */
+@layer base {
+  html {
+    /* ทำให้การเลื่อนหน้าเว็บนุ่มนวลขึ้น */
+    scroll-behavior: smooth; 
+  }
+
+  body {
+    /* antialiased: ทำให้ตัวหนังสือคมชัดขึ้นบนหน้าจอ
+      selection: เปลี่ยนสีเวลาเอาเมาส์ลากคลุมข้อความให้เป็นสีธีมของเรา (Indigo)
+    */
+    @apply bg-slate-50 text-slate-800 antialiased selection:bg-indigo-500 selection:text-white;
+    font-family: 'Inter', 'Noto Sans Thai', sans-serif;
+  }
+}
+
+/* 4. Custom Scrollbar (ลูกเล่นที่ทำให้เว็บดูแพงขึ้น 100%) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  /* ทำให้ Scrollbar ดูมนๆ เนียนๆ เข้ากับดีไซน์ Tailwind */
+  @apply bg-slate-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400;
+}
